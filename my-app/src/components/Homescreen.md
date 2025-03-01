@@ -176,7 +176,7 @@ function Homescreen() {
         </div>
       </section>
 
-      <section id="direction">
+      <section id="address">
         <div class="container max-w-8xl px-6 py-8">
           <div class="flex items-center justify-between mb-4">
             <p class="text-headBlue font-bold text-2xl uppercase">Address</p>
