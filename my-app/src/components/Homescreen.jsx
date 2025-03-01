@@ -18,7 +18,14 @@ function Homescreen() {
         <div class="container max-w-8xl px-6 py-8">
           <div class="flex items-center justify-between mb-4">
             <p class="text-headBlue font-bold text-2xl uppercase">Menu</p>
-            <p class="text-descGray font-medium text-lg">See all</p>
+            <p class="text-descGray font-medium text-lg">
+              <a
+                href="#"
+                class="text-decoration-line-none hover:text-headBlue transition-all duration-300"
+              >
+                See all
+              </a>
+            </p>
           </div>
           <div class="grid grid-cols-2 gap-4 items-center justify-center">
             <div class="grid-image flex flex-col items-center border border-borderGray rounded-xl shadow-lg overflow-hidden">
