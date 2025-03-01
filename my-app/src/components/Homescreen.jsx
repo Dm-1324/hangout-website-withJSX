@@ -17,7 +17,7 @@ function Homescreen() {
       <section id="menu">
         <div class="container max-w-8xl px-6 py-8">
           <div class="flex items-center justify-between mb-4">
-            <p class="text-headBlue font-bold text-2xl">Menu</p>
+            <p class="text-headBlue font-bold text-2xl uppercase">Menu</p>
             <p class="text-descGray font-medium text-lg">See all</p>
           </div>
           <div class="grid grid-cols-2 gap-4 items-center justify-center">
@@ -82,7 +82,7 @@ function Homescreen() {
       <section id="gallery">
         <div class="container max-w-8xl px-6 py-8">
           <div class="flex items-center justify-between mb-4">
-            <p class="text-headBlue font-bold text-2xl">Gallery</p>
+            <p class="text-headBlue font-bold text-2xl uppercase">Gallery</p>
             <p class="text-descGray font-medium text-lg">See all</p>
           </div>
           <div class="grid grid-cols-2 gap-4 items-center justify-center">
@@ -135,7 +135,7 @@ function Homescreen() {
       <section id="about-us">
         <div class="container max-w-8xl px-6 py-8">
           <div class="flex flex-col gap-4 items-start justify-start">
-            <p class="text-headBlue font-bold text-2xl">About Us</p>
+            <p class="text-headBlue font-bold text-2xl uppercase">About Us</p>
             <div className="text-left w-full">
               <p class="text-descGray font-normal text-base">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -155,7 +155,9 @@ function Homescreen() {
         <div class="container max-w-8xl px-6 py-8">
           <div class="flex flex-col gap-4">
             <div class="flex items-center justify-between mb-4">
-              <p class="text-headBlue font-bold text-2xl">Directions</p>
+              <p class="text-headBlue font-bold text-2xl uppercase">
+                Directions
+              </p>
               <i class="material-icons text-headBlue">directions</i>
             </div>
             <img
@@ -170,7 +172,7 @@ function Homescreen() {
       <section id="direction">
         <div class="container max-w-8xl px-6 py-8">
           <div class="flex items-center justify-between mb-4">
-            <p class="text-headBlue font-bold text-2xl">Address</p>
+            <p class="text-headBlue font-bold text-2xl uppercase">Address</p>
             <i class="material-icons text-headBlue">home</i>
           </div>
           <div class="address-line">
