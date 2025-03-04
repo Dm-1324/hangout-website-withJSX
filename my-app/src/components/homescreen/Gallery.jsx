@@ -3,7 +3,7 @@ import React from "react";
 const Gallery = () => {
   return (
     <section id="gallery">
-      <div class="container max-w-8xl px-6 py-8">
+      <div class="container max-w-6xl px-6 py-8">
         <div class="flex items-center justify-between mb-4">
           <p class="text-headBlue font-bold text-2xl uppercase">Gallery</p>
           <p class="text-descGray font-medium text-lg">See all</p>

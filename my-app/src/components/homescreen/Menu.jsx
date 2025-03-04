@@ -3,7 +3,7 @@ import React from "react";
 const Menu = () => {
   return (
     <section id="menu">
-      <div class="container max-w-8xl px-6 py-8">
+      <div class="container max-w-6xl px-6 py-8">
         <div class="flex items-center justify-between mb-4">
           <p class="text-headBlue font-bold text-2xl uppercase">Menu</p>
           <p class="text-descGray font-medium text-lg">

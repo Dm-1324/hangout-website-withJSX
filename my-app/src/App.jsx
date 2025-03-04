@@ -6,17 +6,19 @@ import AboutUs from "./components/homescreen/AboutUs";
 import Directions from "./components/homescreen/Directions";
 import Address from "./components/homescreen/Address";
 import Footer from "./components/homescreen/Footer";
+import MenuHeader from "./components/Menu-Page/MenuHeader";
 
 function App() {
   return (
     <div>
-      <Header />
+      {/* <Header />
       <Menu />
       <Gallery />
       <AboutUs />
       <Directions />
       <Address />
-      <Footer />
+      <Footer /> */}
+      <MenuHeader />
     </div>
   );
 }
