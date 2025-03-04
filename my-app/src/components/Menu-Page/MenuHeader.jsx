@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const MenuHeader = () => {
   return (
@@ -7,10 +8,12 @@ const MenuHeader = () => {
         <div class="container max-w-6xl px-6 pt-8 mb-4">
           <div className="flex items-center justify-between gap-14">
             <div className="flex items-center justify-center gap-2.5">
-              <ion-icon
-                name="chevron-back-outline"
-                class="w-6 h-6 text-descGray"
-              ></ion-icon>
+              <Link to="/">
+                <ion-icon
+                  name="chevron-back-outline"
+                  class="w-6 h-6 text-descGray"
+                ></ion-icon>
+              </Link>
 
               <h3 class="text-lg font-semibold text-descGray">MENU</h3>
             </div>
