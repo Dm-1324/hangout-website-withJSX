@@ -6,20 +6,31 @@ import AboutUs from "./components/homescreen/AboutUs";
 import Directions from "./components/homescreen/Directions";
 import Address from "./components/homescreen/Address";
 import Footer from "./components/homescreen/Footer";
-import MenuHeader from "./components/Menu-Page/MenuHeader";
+import MenuScreen from "./MenuScreen";
+import { Routes, Route } from "react-router";
 
 function App() {
   return (
-    <div>
-      {/* <Header />
-      <Menu />
-      <Gallery />
-      <AboutUs />
-      <Directions />
-      <Address />
-      <Footer /> */}
-      <MenuHeader />
-    </div>
+    <Routes>
+      {/* Home Page */}
+      <Route
+        path="/"
+        element={
+          <>
+            <Header />
+            <Menu />
+            <Gallery />
+            <AboutUs />
+            <Directions />
+            <Address />
+            <Footer />
+          </>
+        }
+      />
+
+      {/* Menu Screen */}
+      <Route path="/menuscreen" element={<MenuScreen />} />
+    </Routes>
   );
 }
 

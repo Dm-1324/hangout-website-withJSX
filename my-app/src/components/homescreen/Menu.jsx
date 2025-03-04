@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Menu = () => {
   return (
@@ -7,7 +8,7 @@ const Menu = () => {
         <div class="flex items-center justify-between mb-4">
           <p class="text-headBlue font-bold text-2xl uppercase">Menu</p>
           <p class="text-descGray font-medium text-lg">
-            <a href="#">See all</a>
+            <Link to="/menuscreen">See all</Link>
           </p>
         </div>
         <div class="grid grid-cols-2 gap-4 items-center justify-center">
