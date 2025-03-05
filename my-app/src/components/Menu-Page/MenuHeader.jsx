@@ -15,7 +15,7 @@ const MenuHeader = () => {
                 ></ion-icon>
               </Link>
 
-              <h3 class="text-lg font-semibold text-descGray">MENU</h3>
+              <h3 class="text-lg font-semibold text-descGray mb-1.5">MENU</h3>
             </div>
             <div className="flex items-start justify-center gap-3.5">
               <div class="flex flex-col items-center gap-1">

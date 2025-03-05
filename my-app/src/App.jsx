@@ -7,6 +7,7 @@ import Directions from "./components/homescreen/Directions";
 import Address from "./components/homescreen/Address";
 import Footer from "./components/homescreen/Footer";
 import MenuScreen from "./MenuScreen";
+import GalleryScreen from "./GalleryScreen";
 import { Routes, Route } from "react-router";
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
 
       {/* Menu Screen */}
       <Route path="/menuscreen" element={<MenuScreen />} />
+
+      {/* Gallery Screen */}
+      <Route path="/galleryscreen" element={<GalleryScreen />} />
     </Routes>
   );
 }

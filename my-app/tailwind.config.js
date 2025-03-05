@@ -14,6 +14,8 @@ export default {
         descGray: "#1E1E1E",
         gridBlue: "#001D42",
         borderGray: "#B0C6E1",
+        subHeadBlue: "#00408f",
+        subHeadBorder: "#B0C6E1",
       },
       fontFamily: {
         sans: ["Barlow", "sans-serif"],

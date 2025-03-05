@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Gallery = () => {
   return (
@@ -6,7 +7,9 @@ const Gallery = () => {
       <div class="container max-w-6xl px-6 py-8">
         <div class="flex items-center justify-between mb-4">
           <p class="text-headBlue font-bold text-2xl uppercase">Gallery</p>
-          <p class="text-descGray font-medium text-lg">See all</p>
+          <p class="text-descGray font-medium text-lg">
+            <Link to="/galleryscreen">See all</Link>
+          </p>
         </div>
         <div class="grid grid-cols-2 gap-4 items-center justify-center">
           <div class="grid-image flex items-center border border-borderGray rounded-xl shadow-lg overflow-hidden">

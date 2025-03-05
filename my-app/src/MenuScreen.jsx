@@ -1,6 +1,7 @@
 import React from "react";
 import MenuHeader from "./components/Menu-Page/MenuHeader";
 import MenuItems from "./components/Menu-Page/MenuItems";
+import Footer from "./components/homescreen/Footer";
 
 const MenuScreen = () => {
   return (
@@ -9,6 +10,7 @@ const MenuScreen = () => {
 
       <MenuHeader />
       <MenuItems />
+      <Footer />
     </div>
   );
 };
