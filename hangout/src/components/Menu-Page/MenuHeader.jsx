@@ -1,7 +1,16 @@
 import React from "react";
 import { Link } from "react-router";
 
-const MenuHeader = () => {
+let categories = [
+  { name: "Waffles", image: "image/menu-grid/menu-waffle.png" },
+  { name: "Mocktails", image: "image/menu-grid/menu-mocktails.png" },
+  { name: "Beverages", image: "image/menu-grid/menu-beverages.png" },
+  { name: "Drinks", image: "image/menu-grid/menu-drinks.png" },
+  { name: "Desserts", image: "image/menu-grid/desserts.png" },
+  { name: "Shakes", image: "image/menu-grid/menu-shakes.png" },
+];
+
+const MenuHeader = ({ setselectedCategory }) => {
   return (
     <>
       <section id="menu-header">
