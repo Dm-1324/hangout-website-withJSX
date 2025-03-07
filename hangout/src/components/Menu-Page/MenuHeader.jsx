@@ -1,111 +1,148 @@
 import React from "react";
-import { Link } from "react-router";
+import Waffles from "../menu-items/Waffles";
+import Mocktails from "../menu-items/Mocktails";
+import Beverages from "../menu-items/Beverages";
+import Drinks from "../menu-items/Drinks";
+import Desserts from "../menu-items/Desserts";
+import Shakes from "../menu-items/Shakes";
+import { Link } from "react-router-dom";
 
-let categories = [
-  { name: "Waffles", image: "image/menu-grid/menu-waffle.png" },
-  { name: "Mocktails", image: "image/menu-grid/menu-mocktails.png" },
-  { name: "Beverages", image: "image/menu-grid/menu-beverages.png" },
-  { name: "Drinks", image: "image/menu-grid/menu-drinks.png" },
-  { name: "Desserts", image: "image/menu-grid/desserts.png" },
-  { name: "Shakes", image: "image/menu-grid/menu-shakes.png" },
-];
+const MenuHeader = () => {
+  const offsetTop = 240;
 
-const MenuHeader = ({ setselectedCategory }) => {
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <>
-      <section id="menu-header">
-        <div class="container max-w-6xl px-6 pt-8 mb-4">
-          <div className="flex items-center justify-between gap-14">
+      {/* Header Section */}
+      <div className="fixed top-0 left-0 w-full bg-white z-50 shadow-md">
+        <section id="menu-header" className="w-full bg-white py-3">
+          <div className="container max-w-6xl pt-4 px-6 flex items-center justify-between">
             <div className="flex items-center justify-center gap-2.5">
               <Link to="/">
                 <ion-icon
                   name="chevron-back-outline"
-                  class="w-6 h-6 text-descGray"
+                  className="w-6 h-6 text-descGray"
                 ></ion-icon>
               </Link>
-
-              <h3 class="text-lg font-semibold text-descGray mb-1.5">MENU</h3>
+              <h3 className="text-lg font-semibold text-descGray">MENU</h3>
             </div>
-            <div className="flex items-start justify-center gap-3.5">
-              <div class="flex flex-col items-center gap-1">
-                <button class="relative w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 transition duration-300">
-                  <div class="w-5 h-5 bg-white rounded-full shadow-md transform transition duration-300 translate-x-0"></div>
+            <div className="flex items-center gap-4 justify-center">
+              <div className="flex flex-col gap-2.5 items-center">
+                <button className="relative w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 transition duration-300">
+                  <div className="w-5 h-5 bg-white rounded-full shadow-md transform transition duration-300 translate-x-0"></div>
                 </button>
-                <span class="text-descGray text-xs font-normal">veg only</span>
+                <span className="text-xs text-descGray">veg only</span>
               </div>
               <ion-icon
                 name="search-outline"
-                class="w-6 h-6 text-descGray"
+                className="w-6 h-6 text-descGray"
               ></ion-icon>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="menu-flex">
-        <div class="container max-w-6xl px-6 py-4 shadow-md">
-          <div class="flex items-center justify-between gap-6 mb-4 overflow-x-scroll scrollbar-hide">
-            <div class="flex flex-col items-center gap-2.5 border rounded-md p-1">
-              <div class="w-[70px] h-[70px] rounded-full overflow-hidden">
-                <img
-                  src="image/menu-grid/menu-waffle.png"
-                  alt="Waffles"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <p class="text-base font-medium text-descGray">Waffles</p>
-            </div>
-            <div class="flex flex-col items-center gap-2.5 border rounded-md p-1">
-              <div class="w-[70px] h-[70px] rounded-full overflow-hidden">
-                <img
-                  src="image/menu-grid/menu-mocktails.png"
-                  alt="Mocktails"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <p class="text-base font-medium text-descGray">Mocktails</p>
-            </div>
-            <div class="flex flex-col items-center gap-2.5 border rounded-md p-1">
-              <div class="w-[70px] h-[70px] rounded-full overflow-hidden">
-                <img
-                  src="image/menu-grid/menu-beverages.png"
-                  alt="Beverages"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <p class="text-base font-medium text-descGray">Beverages</p>
-            </div>
-            <div class="flex flex-col items-center gap-2.5 border rounded-md p-1">
-              <div class="w-[70px] h-[70px] rounded-full overflow-hidden">
-                <img
-                  src="image/menu-grid/menu-drinks.png"
-                  alt="Drinks"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <p class="text-base font-medium text-descGray">Drinks</p>
-            </div>
-            <div class="flex flex-col items-center gap-2.5 border rounded-md p-1">
-              <div class="w-[70px] h-[70px] rounded-full overflow-hidden">
-                <img
-                  src="image/menu-grid/menu-desserts.png"
-                  alt="Desserts"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <p class="text-base font-medium text-descGray">Desserts</p>
-            </div>
-            <div class="flex flex-col items-center gap-2.5 border rounded-md p-1">
-              <div class="w-[70px] h-[70px] rounded-full overflow-hidden">
-                <img
-                  src="image/menu-grid/menu-shakes.png"
-                  alt="Shakes"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <p class="text-base font-medium text-descGray">Shakes</p>
-            </div>
+        {/* Categories Section */}
+        <section
+          id="menu-flex"
+          className="w-full bg-white shadow-md mt-2 pb-4 overflow-x-auto scrollbar-hide"
+        >
+          <div className="container max-w-6xl px-6 py-3 flex items-center justify-between gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
+            <button
+              onClick={() => scrollToSection("waffles")}
+              className="flex flex-col gap-2.5 items-center min-w-[80px]"
+            >
+              <img
+                src="image/menu-grid/menu-waffle.png"
+                className="w-[70px] h-[70px] rounded-full"
+              />
+              <p className="text-sm font-medium">Waffles</p>
+            </button>
+            <button
+              onClick={() => scrollToSection("mocktails")}
+              className="flex flex-col gap-2.5 items-center min-w-[80px]"
+            >
+              <img
+                src="image/menu-grid/menu-mocktails.png"
+                className="w-[70px] h-[70px] rounded-full"
+              />
+              <p className="text-sm font-medium">Mocktails</p>
+            </button>
+            <button
+              onClick={() => scrollToSection("beverages")}
+              className="flex flex-col gap-2.5 items-center min-w-[80px]"
+            >
+              <img
+                src="image/menu-grid/menu-beverages.png"
+                className="w-[70px] h-[70px] rounded-full"
+              />
+              <p className="text-sm font-medium">Beverages</p>
+            </button>
+            <button
+              onClick={() => scrollToSection("drinks")}
+              className="flex flex-col gap-2.5 items-center min-w-[80px]"
+            >
+              <img
+                src="image/menu-grid/menu-drinks.png"
+                className="w-[70px] h-[70px] rounded-full"
+              />
+              <p className="text-sm font-medium">Drinks</p>
+            </button>
+            <button
+              onClick={() => scrollToSection("desserts")}
+              className="flex flex-col gap-2.5 items-center min-w-[80px]"
+            >
+              <img
+                src="image/menu-grid/menu-desserts.png"
+                className="w-[70px] h-[70px] rounded-full"
+              />
+              <p className="text-sm font-medium">Desserts</p>
+            </button>
+            <button
+              onClick={() => scrollToSection("shakes")}
+              className="flex flex-col gap-2.5 items-center min-w-[80px]"
+            >
+              <img
+                src="image/menu-grid/menu-shakes.png"
+                className="w-[70px] h-[70px] rounded-full"
+              />
+              <p className="text-sm font-medium">Shakes</p>
+            </button>
           </div>
+        </section>
+      </div>
+
+      {/* Menu Items Section */}
+      <section id="menuitems" className="mt-[220px]">
+        <div className="container max-w-6xl px-6 pt-4 pb-8">
+          <ul className="flex flex-col gap-2.5">
+            <li id="waffles" className="border-b-2 border-subHeadBorder py-4">
+              <Waffles />
+            </li>
+            <li id="mocktails" className="border-b-2 border-subHeadBorder py-4">
+              <Mocktails />
+            </li>
+            <li id="beverages" className="border-b-2 border-subHeadBorder py-4">
+              <Beverages />
+            </li>
+            <li id="drinks" className="border-b-2 border-subHeadBorder py-4">
+              <Drinks />
+            </li>
+            <li id="desserts" className="border-b-2 border-subHeadBorder py-4">
+              <Desserts />
+            </li>
+            <li id="shakes" className="border-b-2 border-subHeadBorder py-4">
+              <Shakes />
+            </li>
+          </ul>
         </div>
       </section>
     </>
