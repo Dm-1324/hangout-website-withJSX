@@ -25,7 +25,7 @@ const MenuHeader = () => {
       {/* Header Section */}
       <div className="fixed top-0 left-0 w-full bg-white z-50 shadow-md">
         <section id="menu-header" className="w-full bg-white py-3">
-          <div className="container max-w-6xl pt-4 px-6 flex items-center justify-between">
+          <div className="container max-w-6xl pt-4 px-6 flex items-start justify-between">
             <div className="flex items-center justify-center gap-2.5">
               <Link to="/">
                 <ion-icon
@@ -35,7 +35,7 @@ const MenuHeader = () => {
               </Link>
               <h3 className="text-lg font-semibold text-descGray">MENU</h3>
             </div>
-            <div className="flex items-center gap-4 justify-center">
+            <div className="flex items-start gap-4 justify-center">
               <div className="flex flex-col gap-2.5 items-center">
                 <button className="relative w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 transition duration-300">
                   <div className="w-5 h-5 bg-white rounded-full shadow-md transform transition duration-300 translate-x-0"></div>
@@ -53,7 +53,7 @@ const MenuHeader = () => {
         {/* Categories Section */}
         <section
           id="menu-flex"
-          className="w-full bg-white shadow-md mt-2 pb-4 overflow-x-auto scrollbar-hide"
+          className="w-full bg-white shadow-md pb-4 overflow-x-auto scrollbar-hide"
         >
           <div className="container max-w-6xl px-6 py-3 flex items-center justify-between gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
             <button

@@ -8,7 +8,7 @@ const Shakes = () => {
       </div>
       <div>
         <ul className="mt-4 flex flex-col gap-2">
-          <li className="flex items-center justify-between bg-white p-2.5 rounded-lg">
+          <li className="flex items-center justify-between bg-white p-2.5 rounded-lg shadow-lg">
             <div className="flex items-center justify-center gap-2.5">
               <img
                 src="image/menu-images/juice.png"
@@ -28,7 +28,7 @@ const Shakes = () => {
               <span>&#8377;</span>159.00
             </div>
           </li>
-          <li className="flex items-center justify-between bg-white p-2.5 rounded-lg">
+          <li className="flex items-center justify-between bg-white p-2.5 rounded-lg shadow-lg">
             <div className="flex items-center justify-center gap-2.5">
               <img
                 src="image/menu-images/burgerking.png"
@@ -48,7 +48,7 @@ const Shakes = () => {
               <span>&#8377;</span>159.00
             </div>
           </li>
-          <li className="flex items-center justify-between bg-white p-2.5 rounded-lg">
+          <li className="flex items-center justify-between bg-white p-2.5 rounded-lg shadow-lg">
             <div className="flex items-center justify-center gap-2.5">
               <img
                 src="image/menu-images/fries.png"
