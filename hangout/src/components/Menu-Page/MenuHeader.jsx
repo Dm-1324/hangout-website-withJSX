@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Waffles from "../menu-items/Waffles";
 import Mocktails from "../menu-items/Mocktails";
 import Beverages from "../menu-items/Beverages";
 import Drinks from "../menu-items/Drinks";
 import Desserts from "../menu-items/Desserts";
 import Shakes from "../menu-items/Shakes";
-import { Link } from "react-router-dom";
 
 const MenuHeader = () => {
   const offsetTop = 240;
+  const scrollContainerRef = useRef(null);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -19,6 +22,29 @@ const MenuHeader = () => {
       });
     }
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const container = scrollContainerRef.current;
+      if (!container) return;
+
+      setShowLeftArrow(container.scrollLeft > 0);
+
+      setShowRightArrow(
+        container.scrollLeft < container.scrollWidth - container.clientWidth
+      );
+    };
+
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener("scroll", handleScroll);
+      handleScroll();
+    }
+
+    return () => {
+      if (container) container.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -36,12 +62,6 @@ const MenuHeader = () => {
               <h3 className="text-lg font-semibold text-descGray">MENU</h3>
             </div>
             <div className="flex items-start gap-4 justify-center">
-              <div className="flex flex-col gap-2.5 items-center">
-                <button className="relative w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 transition duration-300">
-                  <div className="w-5 h-5 bg-white rounded-full shadow-md transform transition duration-300 translate-x-0"></div>
-                </button>
-                <span className="text-xs text-descGray">veg only</span>
-              </div>
               <ion-icon
                 name="search-outline"
                 className="w-6 h-6 text-descGray"
@@ -53,12 +73,15 @@ const MenuHeader = () => {
         {/* Categories Section */}
         <section
           id="menu-flex"
-          className="w-full bg-white shadow-md pb-4 overflow-x-auto scrollbar-hide"
+          className="w-full bg-white shadow-md pb-6 relative"
         >
-          <div className="container max-w-6xl px-6 py-3 flex items-center justify-between gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
+          <div
+            ref={scrollContainerRef}
+            className="container max-w-6xl px-6 py-3 flex items-center gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide"
+          >
             <button
               onClick={() => scrollToSection("waffles")}
-              className="flex flex-col gap-2.5 items-center min-w-[80px]"
+              className="min-w-[80px]"
             >
               <img
                 src="image/menu-grid/menu-waffle.png"
@@ -68,7 +91,7 @@ const MenuHeader = () => {
             </button>
             <button
               onClick={() => scrollToSection("mocktails")}
-              className="flex flex-col gap-2.5 items-center min-w-[80px]"
+              className="min-w-[80px]"
             >
               <img
                 src="image/menu-grid/menu-mocktails.png"
@@ -78,7 +101,7 @@ const MenuHeader = () => {
             </button>
             <button
               onClick={() => scrollToSection("beverages")}
-              className="flex flex-col gap-2.5 items-center min-w-[80px]"
+              className="min-w-[80px]"
             >
               <img
                 src="image/menu-grid/menu-beverages.png"
@@ -88,7 +111,7 @@ const MenuHeader = () => {
             </button>
             <button
               onClick={() => scrollToSection("drinks")}
-              className="flex flex-col gap-2.5 items-center min-w-[80px]"
+              className="min-w-[80px]"
             >
               <img
                 src="image/menu-grid/menu-drinks.png"
@@ -98,7 +121,7 @@ const MenuHeader = () => {
             </button>
             <button
               onClick={() => scrollToSection("desserts")}
-              className="flex flex-col gap-2.5 items-center min-w-[80px]"
+              className="min-w-[80px]"
             >
               <img
                 src="image/menu-grid/menu-desserts.png"
@@ -108,7 +131,7 @@ const MenuHeader = () => {
             </button>
             <button
               onClick={() => scrollToSection("shakes")}
-              className="flex flex-col gap-2.5 items-center min-w-[80px]"
+              className="min-w-[80px]"
             >
               <img
                 src="image/menu-grid/menu-shakes.png"
@@ -116,6 +139,22 @@ const MenuHeader = () => {
               />
               <p className="text-sm font-medium">Shakes</p>
             </button>
+          </div>
+
+          {/* Scroll Indicator Arrows */}
+          <div className="absolute bottom-[-20px] left-0 w-full flex justify-between px-6 bg-white pb-2">
+            {showLeftArrow && (
+              <ion-icon
+                name="chevron-back-outline"
+                className="w-6 h-6 text-descGray"
+              ></ion-icon>
+            )}
+            {showRightArrow && (
+              <ion-icon
+                name="chevron-forward-outline"
+                className="w-6 h-6 text-descGray"
+              ></ion-icon>
+            )}
           </div>
         </section>
       </div>
