@@ -93,9 +93,24 @@ const MenuHeader = () => {
           id="menu-flex"
           className="w-full bg-white shadow-md mt-2 pb-4 overflow-x-auto scrollbar-hide"
         >
+          {/* Scroll Indicator Arrows */}
+          <div className="absolute top-[60%] left-0 w-full flex items-center justify-between px-2 pb-2 mb-2 z-5 pointer-events-none">
+            {showLeftArrow && (
+              <ion-icon
+                name="chevron-back-outline"
+                className="w-5 h-5 text-descGray"
+              ></ion-icon>
+            )}
+            {showRightArrow && (
+              <ion-icon
+                name="chevron-forward-outline"
+                className="w-5 h-5 text-descGray"
+              ></ion-icon>
+            )}
+          </div>
           <div
             ref={scrollContainerRef}
-            className="container max-w-6xl px-6 py-3 flex items-center gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide"
+            className="container max-w-6xl px-6 py-3 flex items-center gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide z-20"
           >
             {[
               { id: "waffles", img: "menu-waffle.png", label: "Waffles" },
@@ -126,22 +141,6 @@ const MenuHeader = () => {
                 <p className="text-sm font-medium">{item.label}</p>
               </button>
             ))}
-          </div>
-
-          {/* Scroll Indicator Arrows */}
-          <div className="absolute top-[60%] right-0 w-full flex items-center justify-between px-2 pb-2 mb-2">
-            {showLeftArrow && (
-              <ion-icon
-                name="chevron-back-outline"
-                className="w-5 h-5 text-descGray"
-              ></ion-icon>
-            )}
-            {showRightArrow && (
-              <ion-icon
-                name="chevron-forward-outline"
-                className="w-5 h-5 text-descGray"
-              ></ion-icon>
-            )}
           </div>
         </section>
       </div>
