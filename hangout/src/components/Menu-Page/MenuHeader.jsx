@@ -8,7 +8,7 @@ import Desserts from "../menu-items/Desserts";
 import Shakes from "../menu-items/Shakes";
 
 const MenuHeader = () => {
-  const offsetTop = 240;
+  const offsetTop = 260;
   const scrollContainerRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
@@ -62,6 +62,12 @@ const MenuHeader = () => {
               <h3 className="text-lg font-semibold text-descGray">MENU</h3>
             </div>
             <div className="flex items-start gap-4 justify-center">
+              <div className="flex flex-col gap-2.5 items-center">
+                <button className="relative w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 transition duration-300">
+                  <div className="w-5 h-5 bg-white rounded-full shadow-md transform transition duration-300 translate-x-0"></div>
+                </button>
+                <span className="text-xs text-descGray">VEG ONLY</span>
+              </div>
               <ion-icon
                 name="search-outline"
                 className="w-6 h-6 text-descGray"
@@ -73,7 +79,7 @@ const MenuHeader = () => {
         {/* Categories Section */}
         <section
           id="menu-flex"
-          className="w-full bg-white shadow-md pb-6 relative"
+          className="w-full bg-white shadow-md mt-2 pb-4 overflow-x-auto scrollbar-hide"
         >
           <div
             ref={scrollContainerRef}
@@ -81,7 +87,7 @@ const MenuHeader = () => {
           >
             <button
               onClick={() => scrollToSection("waffles")}
-              className="min-w-[80px]"
+              className="flex flex-col gap-2.5 items-center min-w-[80px]"
             >
               <img
                 src="image/menu-grid/menu-waffle.png"
@@ -91,7 +97,7 @@ const MenuHeader = () => {
             </button>
             <button
               onClick={() => scrollToSection("mocktails")}
-              className="min-w-[80px]"
+              className="flex flex-col gap-2.5 items-center min-w-[80px]"
             >
               <img
                 src="image/menu-grid/menu-mocktails.png"
@@ -101,7 +107,7 @@ const MenuHeader = () => {
             </button>
             <button
               onClick={() => scrollToSection("beverages")}
-              className="min-w-[80px]"
+              className="flex flex-col gap-2.5 items-center min-w-[80px]"
             >
               <img
                 src="image/menu-grid/menu-beverages.png"
@@ -111,7 +117,7 @@ const MenuHeader = () => {
             </button>
             <button
               onClick={() => scrollToSection("drinks")}
-              className="min-w-[80px]"
+              className="flex flex-col gap-2.5 items-center min-w-[80px]"
             >
               <img
                 src="image/menu-grid/menu-drinks.png"
@@ -121,7 +127,7 @@ const MenuHeader = () => {
             </button>
             <button
               onClick={() => scrollToSection("desserts")}
-              className="min-w-[80px]"
+              className="flex flex-col gap-2.5 items-center min-w-[80px]"
             >
               <img
                 src="image/menu-grid/menu-desserts.png"
@@ -131,7 +137,7 @@ const MenuHeader = () => {
             </button>
             <button
               onClick={() => scrollToSection("shakes")}
-              className="min-w-[80px]"
+              className="flex flex-col gap-2.5 items-center min-w-[80px]"
             >
               <img
                 src="image/menu-grid/menu-shakes.png"
@@ -142,7 +148,7 @@ const MenuHeader = () => {
           </div>
 
           {/* Scroll Indicator Arrows */}
-          <div className="absolute bottom-[-20px] left-0 w-full flex justify-between px-6 bg-white pb-2">
+          <div className="absolute bottom-[-20px] left-0 w-full flex items-center justify-between px-6 bg-white pb-2 mb-2">
             {showLeftArrow && (
               <ion-icon
                 name="chevron-back-outline"
@@ -160,7 +166,7 @@ const MenuHeader = () => {
       </div>
 
       {/* Menu Items Section */}
-      <section id="menuitems" className="mt-[220px]">
+      <section id="menuitems" className="mt-[240px]">
         <div className="container max-w-6xl px-6 pt-4 pb-8">
           <ul className="flex flex-col gap-2.5">
             <li id="waffles" className="border-b-2 border-subHeadBorder py-4">
