@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Waffles from "../menu-items/Waffles";
 import Mocktails from "../menu-items/Mocktails";
 import Beverages from "../menu-items/Beverages";
@@ -13,6 +13,8 @@ const MenuHeader = () => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
 
+  const location = useLocation();
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -22,6 +24,16 @@ const MenuHeader = () => {
       });
     }
   };
+
+  // Handle query parameter redirection on load
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const category = queryParams.get("category");
+
+    if (category) {
+      scrollToSection(category); // Automatically scroll to the selected category
+    }
+  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,80 +97,49 @@ const MenuHeader = () => {
             ref={scrollContainerRef}
             className="container max-w-6xl px-6 py-3 flex items-center gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide"
           >
-            <button
-              onClick={() => scrollToSection("waffles")}
-              className="flex flex-col gap-2.5 items-center min-w-[80px]"
-            >
-              <img
-                src="image/menu-grid/menu-waffle.png"
-                className="w-[70px] h-[70px] rounded-full"
-              />
-              <p className="text-sm font-medium">Waffles</p>
-            </button>
-            <button
-              onClick={() => scrollToSection("mocktails")}
-              className="flex flex-col gap-2.5 items-center min-w-[80px]"
-            >
-              <img
-                src="image/menu-grid/menu-mocktails.png"
-                className="w-[70px] h-[70px] rounded-full"
-              />
-              <p className="text-sm font-medium">Mocktails</p>
-            </button>
-            <button
-              onClick={() => scrollToSection("beverages")}
-              className="flex flex-col gap-2.5 items-center min-w-[80px]"
-            >
-              <img
-                src="image/menu-grid/menu-beverages.png"
-                className="w-[70px] h-[70px] rounded-full"
-              />
-              <p className="text-sm font-medium">Beverages</p>
-            </button>
-            <button
-              onClick={() => scrollToSection("drinks")}
-              className="flex flex-col gap-2.5 items-center min-w-[80px]"
-            >
-              <img
-                src="image/menu-grid/menu-drinks.png"
-                className="w-[70px] h-[70px] rounded-full"
-              />
-              <p className="text-sm font-medium">Drinks</p>
-            </button>
-            <button
-              onClick={() => scrollToSection("desserts")}
-              className="flex flex-col gap-2.5 items-center min-w-[80px]"
-            >
-              <img
-                src="image/menu-grid/menu-desserts.png"
-                className="w-[70px] h-[70px] rounded-full"
-              />
-              <p className="text-sm font-medium">Desserts</p>
-            </button>
-            <button
-              onClick={() => scrollToSection("shakes")}
-              className="flex flex-col gap-2.5 items-center min-w-[80px]"
-            >
-              <img
-                src="image/menu-grid/menu-shakes.png"
-                className="w-[70px] h-[70px] rounded-full"
-              />
-              <p className="text-sm font-medium">Shakes</p>
-            </button>
+            {[
+              { id: "waffles", img: "menu-waffle.png", label: "Waffles" },
+              {
+                id: "mocktails",
+                img: "menu-mocktails.png",
+                label: "Mocktails",
+              },
+              {
+                id: "beverages",
+                img: "menu-beverages.png",
+                label: "Beverages",
+              },
+              { id: "drinks", img: "menu-drinks.png", label: "Drinks" },
+              { id: "desserts", img: "menu-desserts.png", label: "Desserts" },
+              { id: "shakes", img: "menu-shakes.png", label: "Shakes" },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="flex flex-col gap-2.5 items-center min-w-[80px]"
+              >
+                <img
+                  src={`image/menu-grid/${item.img}`}
+                  className="w-[70px] h-[70px] rounded-full"
+                  alt={item.label}
+                />
+                <p className="text-sm font-medium">{item.label}</p>
+              </button>
+            ))}
           </div>
 
           {/* Scroll Indicator Arrows */}
-          <div className="absolute bottom-[-20px] left-0 w-full flex items-center justify-between px-6 bg-white pb-2 mb-2">
+          <div className="absolute top-[60%] right-0 w-full flex items-center justify-between px-2 pb-2 mb-2">
             {showLeftArrow && (
               <ion-icon
                 name="chevron-back-outline"
-                className="w-6 h-6 text-descGray"
+                className="w-5 h-5 text-descGray"
               ></ion-icon>
             )}
             {showRightArrow && (
               <ion-icon
                 name="chevron-forward-outline"
-                className="w-6 h-6 text-descGray"
+                className="w-5 h-5 text-descGray"
               ></ion-icon>
             )}
           </div>
