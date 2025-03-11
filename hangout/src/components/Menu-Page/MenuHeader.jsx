@@ -12,6 +12,7 @@ const MenuHeader = () => {
   const scrollContainerRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+  const [toggleButton, settoggleButton] = useState(false);
 
   const location = useLocation();
 
@@ -25,13 +26,12 @@ const MenuHeader = () => {
     }
   };
 
-  // Handle query parameter redirection on load
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const category = queryParams.get("category");
 
     if (category) {
-      scrollToSection(category); // Automatically scroll to the selected category
+      scrollToSection(category);
     }
   }, [location]);
 
@@ -74,11 +74,27 @@ const MenuHeader = () => {
               <h3 className="text-lg font-semibold text-descGray">MENU</h3>
             </div>
             <div className="flex items-start gap-4 justify-center">
+              {/* VEG ONLY Toggle Button */}
               <div className="flex flex-col gap-2.5 items-center">
-                <button className="relative w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 transition duration-300">
-                  <div className="w-5 h-5 bg-white rounded-full shadow-md transform transition duration-300 translate-x-0"></div>
+                <button
+                  className={`relative w-12 h-6 flex items-center rounded-full p-1 transition duration-300 ${
+                    toggleButton ? "bg-green-500" : "bg-gray-300"
+                  }`}
+                  onClick={() => settoggleButton((prev) => !prev)}
+                >
+                  <div
+                    className={`w-5 h-5 bg-white rounded-full shadow-md transform transition duration-300 ${
+                      toggleButton ? "translate-x-6" : "translate-x-0"
+                    }`}
+                  ></div>
                 </button>
-                <span className="text-xs text-descGray">VEG ONLY</span>
+                <span
+                  className={`text-xs text-descGray transition duration-300 ${
+                    toggleButton ? "font-bold" : "font-medium"
+                  }`}
+                >
+                  VEG ONLY
+                </span>
               </div>
               <ion-icon
                 name="search-outline"
@@ -108,6 +124,7 @@ const MenuHeader = () => {
               ></ion-icon>
             )}
           </div>
+
           <div
             ref={scrollContainerRef}
             className="container max-w-6xl px-6 py-3 flex items-center gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide z-20"
@@ -150,22 +167,22 @@ const MenuHeader = () => {
         <div className="container max-w-6xl px-6 pt-4 pb-8">
           <ul className="flex flex-col gap-2.5">
             <li id="waffles" className="border-b-2 border-subHeadBorder py-4">
-              <Waffles />
+              <Waffles vegOnly={toggleButton} />
             </li>
             <li id="mocktails" className="border-b-2 border-subHeadBorder py-4">
-              <Mocktails />
+              <Mocktails vegOnly={toggleButton} />
             </li>
             <li id="beverages" className="border-b-2 border-subHeadBorder py-4">
-              <Beverages />
+              <Beverages vegOnly={toggleButton} />
             </li>
             <li id="drinks" className="border-b-2 border-subHeadBorder py-4">
-              <Drinks />
+              <Drinks vegOnly={toggleButton} />
             </li>
             <li id="desserts" className="border-b-2 border-subHeadBorder py-4">
-              <Desserts />
+              <Desserts vegOnly={toggleButton} />
             </li>
             <li id="shakes" className="border-b-2 border-subHeadBorder py-4">
-              <Shakes />
+              <Shakes vegOnly={toggleButton} />
             </li>
           </ul>
         </div>
