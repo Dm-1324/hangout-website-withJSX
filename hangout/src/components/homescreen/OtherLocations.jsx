@@ -10,6 +10,7 @@ const OtherLocations = () => {
           </p>
           <div className="text-left w-full">
             <ul className="flex flex-col">
+              {/* LOCATION ONE */}
               <li className="flex flex-col gap-6 pb-4 border-b-2 border-borderGray">
                 <div className=" aspect-w-16 aspect-h-7 overflow-hidden rounded-lg border-borderGray shadow-md">
                   <a
