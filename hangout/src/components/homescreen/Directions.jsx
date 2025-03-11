@@ -9,11 +9,13 @@ const Directions = () => {
             <p class="text-headBlue font-bold text-2xl uppercase">Directions</p>
             <i class="material-icons text-headBlue">directions</i>
           </div>
-          <img
-            src="image/direction/map.png"
-            class="object-contain w-full border border-borderGray rounded-lg shadow-md"
-            alt=""
-          />
+          <div className=" aspect-w-16 aspect-h-7">
+            <img
+              src="image/direction/map1.svg"
+              class="object-contain w-full border border-borderGray rounded-lg shadow-md"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/homescreen/Header";
 import Menu from "./components/homescreen/Menu";
 import Gallery from "./components/homescreen/Gallery";
+import OtherLocations from "./components/homescreen/OtherLocations";
 import AboutUs from "./components/homescreen/AboutUs";
 import Directions from "./components/homescreen/Directions";
 import Address from "./components/homescreen/Address";
@@ -21,9 +22,10 @@ function App() {
             <Header />
             <Menu />
             <Gallery />
-            <AboutUs />
+            <OtherLocations />
+            {/* <AboutUs />
             <Directions />
-            <Address />
+            <Address /> */}
             <Footer />
           </>
         }
