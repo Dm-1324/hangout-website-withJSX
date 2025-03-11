@@ -10,15 +10,15 @@ const OtherLocations = () => {
           </p>
           <div className="text-left w-full">
             <ul className="flex flex-col">
-              <li className="flex flex-col gap-6">
-                <div className=" aspect-w-16 aspect-h-7">
+              <li className="flex flex-col gap-6 pb-4 border-b-2 border-borderGray">
+                <div className=" aspect-w-16 aspect-h-7 overflow-hidden rounded-lg border-borderGray shadow-md">
                   <a
                     href="https://maps.app.goo.gl/dPXwbvyNDGXTRBzb7"
                     target="_blank"
                   >
                     <img
                       src="image/direction/map1.svg"
-                      class="object-contain w-full border border-borderGray rounded-lg shadow-md"
+                      class="object-contain w-full border border-borderGray rounded-lg scale-125"
                       alt=""
                     />
                   </a>
